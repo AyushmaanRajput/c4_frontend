@@ -12,12 +12,12 @@ export const Posts = () => {
     axios
       .get(`https://smiling-blue-hermit-crab.cyclic.app/posts`, {
         headers: {
-          Authorization: `Bearer ${JSON.stringify(token)}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
         console.log(res);
-        setData(res.data);
+        setData(res.data.posts);
       })
       .catch((err) => console.log(err));
   }, []);
