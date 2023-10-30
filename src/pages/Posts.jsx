@@ -22,20 +22,23 @@ export const Posts = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div>
-      {!login ? (
-        <Link to="/login">Login</Link>
-      ) : (
-        data.length > 0 &&
-        data.map((el, i) => {
-          return (
-            <div key={i}>
-              <h3>{el.title}</h3>
-              <p>{el.body}</p>
-            </div>
-          );
-        })
-      )}
-    </div>
+    <>
+      <h1>{data.length} Posts</h1>
+      <div>
+        {!login ? (
+          <Link to="/login">Login</Link>
+        ) : (
+          data.length > 0 &&
+          data.map((el, i) => {
+            return (
+              <div key={i}>
+                <h3>{el.title}</h3>
+                <p>{el.body}</p>
+              </div>
+            );
+          })
+        )}
+      </div>
+    </>
   );
 };
